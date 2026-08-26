@@ -10,7 +10,7 @@
 
 **OAWK Programming ("o/awk/p" or "Oawk") is an interpreter of the Awk programming language that extends functionality by adding object orientation and various supporting capabilities. This idea was originally conceived while trying to improve my own offensive security methodologies by marrying Bash and Awk. The pseudo-class structure I tried to implement from within Bash was not sufficient, so I forked my preferred Awk flavor and Oawk was born. Oawk is a fork of [Mawk](https://invisible-island.net/mawk/).**
 
-**The name "Oawk" is derived from "Object-Oriented Awk" and follows the same naming convention as other Awk implementations (e.g. Nawk, Gawk, Mawk, etc.). The logo is made to resemble a regular expression in the same style as Grep ("g/re/p"), and the chickens are a lighthearted reference to the programming methodology for which Oawk was created. See [Bawk](https://github.com/robertsean1995/bawk) for more information.**
+**The name "Oawk" is derived from "Object-Oriented Awk" and follows the same naming convention as other Awk flavors (e.g. Nawk, Gawk, Mawk, etc.). The logo is made to resemble a regular expression in the same style as Grep ("g/re/p"), and the chickens are a lighthearted reference to the programming methodology for which Oawk was created. See [Bawk](https://github.com/robertsean1995/bawk) for more information.**
 
 - Preserves traditional Awk syntax, semantics, and text-processing capabilities.
 - Extends Awk with native classes, objects, instance state, methods, and lifecycle behavior.
@@ -61,7 +61,7 @@ And the same inconsistency extends to individual Awk flavors (e.g. Nawk, Gawk, M
 
 It is intended for Oawk to preserve Mawk's performance-oriented foundation. To measure the performance impact of these changes, Oawk is benchmarked alongside Mawk, Gawk, Python, and Bash using the same computational workload.
 
-The benchmark performs one billion iterations of a simple arithmetic loop. Each implementation is measured using ```/usr/bin/time -v```. The test is repeated three (3) times per implementation. The reported results are the averages of **User time (seconds)**, representing CPU time spent executing the program in user mode, and **Maximum resident set size (kbytes)**, representing peak physical memory usage during execution. This is not an *exhaustive* comparison. 
+The benchmark performs one billion iterations of a simple arithmetic loop. Each tool is measured using ```/usr/bin/time -v```. The test is repeated three (3) times per tool. The reported results are the averages of **User time (seconds)**, representing CPU time spent executing the program in user mode, and **Maximum resident set size (kbytes)**, representing peak physical memory usage during execution. This is not an *exhaustive* comparison. 
 
 These benchmarks are intended as a focused comparison of raw loop execution and memory overhead rather than a comprehensive measure of overall language performance. They simply provide a baseline for evaluating how closely Oawk retains Mawk's performance characteristics after so many changes and how those baselines compare to other languages. Bash is just here to show what it is like for a normal person to compete in the Olympics. 
 
