@@ -1,4 +1,4 @@
-![BAWKP](/images/LOGO)
+![OAWK](/images/LOGO)
 
 <div align="center">
   <a href="https://www.linkedin.com/in/robertsean1995/"><img align="middle" src="https://img.shields.io/badge/LinkedIn-%230A66C2.svg?style=for-the-badge&logo=linkedin&logoColor=white"></a>
@@ -10,7 +10,7 @@
 
 **OAWK Programming ("o/awk/p" or "Oawk") is an object-oriented extension of AWK, implemented as a fork of mawk. It preserves AWK's lightweight, text-processing-oriented design while extending the language with classes, objects, methods, first-class functions, decorators, reflection, and an interactive REPL. Oawk is intended to explore how far AWK can be extended toward object-oriented and dynamic programming without abandoning the language that makes AWK distinct. Oawk is a fork of [Mawk](https://invisible-island.net/mawk/).**
 
-**The name "Oawk" is derived from "Object-Oriented Awk" and follows the same naming convention as other Awk implementations. The logo is made to resemble a regular expression in the same style as Grep ("g/re/p"), and the tree is a lighthearted reference to how I have grown to pronounce "Oawk"; it has a similar enough spelling to the deciduous hardwoods, so I simply started pronouncing it as "oak".**
+**The name "Oawk" is derived from "Object-Oriented Awk" and follows the same naming convention as other Awk implementations. The logo is made to resemble a regular expression in the same style as Grep ("g/re/p"), and the chickens are a lighthearted reference to the programming methodology for which Oawk was created. See [Bawk](https://github.com/robertsean1995/bawk) for more information.**
 - Extends AWK with native classes, objects, instance state, methods, and lifecycle behavior.
 - Preserves traditional AWK syntax, semantics, and text-processing capabilities.
 - Treats functions as first-class runtime values that can be stored, passed, returned, and dynamically replaced.
@@ -23,7 +23,7 @@
 
 ## Table of Contents
 - [1 Introduction](#1-introduction)
-  - [1a On AWK Capitalization](#1a-on-awk-capitalization)
+  - [1a On the Capitalization of Awk](#1a-on-the-capitalization-of-awk)
 - [2 Features](#2-features)
   - [2a Examples](#2a-examples)
 - [3 Performance Metrics](#3-performance-metrics)
@@ -32,12 +32,13 @@
   - [4b Building and Installing](#4b-building-and-installing)
   - [4c Testing](#4c-testing)
   - [4d Uninstallation](#4d-uninstallation)
+- [5 Supporting Tools](#5-supporting-tools)
 
 <hr>
 
 # Introduction
 
-## On Awk Capitalization
+## On the Capitalization of Awk
 
 a word on the captilization of awk
 
@@ -65,6 +66,8 @@ my bawkp follows this same convention
 
 [One-line description of the benchmark workload and measurement methodology.]
 
+Each test was ran 3 times for each language. The results were then averaged.
+
 | Implementation | Time | Memory |
 |---|---:|---:|
 | Oawk | | |
@@ -88,3 +91,9 @@ make check
 Uninstallation
 
 sudo make uninstall && make clean
+
+# Supporting Tools
+
+Formatter
+
+Color syntax file
