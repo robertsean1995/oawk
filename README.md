@@ -14,8 +14,8 @@
 
 - Preserves traditional Awk syntax, semantics, and text-processing capabilities.
 - Extends Awk with native classes, objects, instance state, methods, and lifecycle behavior.
-- Treats functions as first-class runtime values that can be stored, passed, returned, and dynamically replaced.
-- Uses decorators to introduce a more dynamic runtime model beyond basic object-oriented syntax and semantics.
+- Treats functions as first-class runtime values that can be dynamically manipulated.
+- Uses decorators to introduce a more dynamic runtime model beyond basic object orientation.
 - Provides runtime reflection for inspecting Oawk values and objects.
 - Includes an interactive REPL for exploratory and general-purpose programming.
 - Remains based on Mawk, retaining its small and performance-oriented foundation.
