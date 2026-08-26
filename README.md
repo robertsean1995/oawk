@@ -8,16 +8,17 @@
 
 <hr>
 
-**OAWK Programming ("o/awk/p" or "Oawk") is an object-oriented extension of AWK, implemented as a fork of mawk. It preserves AWK's lightweight, text-processing-oriented design while extending the language with classes, objects, methods, first-class functions, decorators, reflection, and an interactive REPL. Oawk is intended to explore how far AWK can be extended toward object-oriented and dynamic programming without abandoning the language that makes AWK distinct. Oawk is a fork of [Mawk](https://invisible-island.net/mawk/).**
+**OAWK Programming ("o/awk/p" or "Oawk") is an interpreter of the Awk programming language that extends functionality by adding object orientation and various supporting capabilities. This idea was originally conceived while trying to improve my own offensive security methodologies by marrying Bash and Awk. The pseudo-class structure I tried to implement in Bash was not sufficient, so I decided to fork my preferred Awk implementation. Oawk is a fork of [Mawk](https://invisible-island.net/mawk/).**
 
-**The name "Oawk" is derived from "Object-Oriented Awk" and follows the same naming convention as other Awk implementations. The logo is made to resemble a regular expression in the same style as Grep ("g/re/p"), and the chickens are a lighthearted reference to the programming methodology for which Oawk was created. See [Bawk](https://github.com/robertsean1995/bawk) for more information.**
-- Extends AWK with native classes, objects, instance state, methods, and lifecycle behavior.
-- Preserves traditional AWK syntax, semantics, and text-processing capabilities.
+**The name "Oawk" is derived from "Object-Oriented Awk" and follows the same naming convention as other Awk implementations (e.g. Nawk, Gawk, Mawk, etc.). The logo is made to resemble a regular expression in the same style as Grep ("g/re/p"), and the chickens are a lighthearted reference to the programming methodology for which Oawk was created. See [Bawk](https://github.com/robertsean1995/bawk) for more information.**
+
+- Preserves traditional Awk syntax, semantics, and text-processing capabilities.
+- Extends Awk with native classes, objects, instance state, methods, and lifecycle behavior.
 - Treats functions as first-class runtime values that can be stored, passed, returned, and dynamically replaced.
 - Uses decorators to introduce a more dynamic runtime model beyond basic object-oriented syntax and semantics.
 - Provides runtime reflection for inspecting Oawk values and objects.
 - Includes an interactive REPL for exploratory and general-purpose programming.
-- Remains based on mawk, retaining its small and performance-oriented foundation.
+- Remains based on Mawk, retaining its small and performance-oriented foundation.
 
 <hr>
 
@@ -37,6 +38,8 @@
 <hr>
 
 # Introduction
+
+It preserves Awk's original text-processing design while adding classes, objects, methods, first-class functions, decorators, reflection, and an interactive Read-Eval-Print Loop ("REPL")
 
 ## On the Capitalization of Awk
 
@@ -64,31 +67,88 @@ my bawkp follows this same convention
 
 # Performance Metrics
 
-[One-line description of the benchmark workload and measurement methodology.]
+It is intended for Oawk to preserve Mawk's performance-oriented foundation. To measure the performance impact of these changes, Oawk is benchmarked alongside Mawk, Gawk, Python, and Bash using the same computational workload.
 
-Each test was ran 3 times for each language. The results were then averaged.
+The benchmark performs one billion iterations of a simple arithmetic loop. Each implementation is measured using ```/usr/bin/time -v```. The test is repeated three (3) times per implementation. The reported results are the averages of **User time (seconds)**, representing CPU time spent executing the program in user mode, and **Maximum resident set size (kbytes)**, representing peak physical memory usage during execution. This is not an *exhaustive* comparison. 
 
-| Implementation | Time | Memory |
-|---|---:|---:|
-| Oawk | | |
-| mawk | | |
-| gawk | | |
-| Python | | |
-| Bash | | |
+These benchmarks are intended as a focused comparison of raw loop execution and memory overhead rather than a comprehensive measure of overall language performance. They simply provide a baseline for evaluating how closely Oawk retains Mawk's performance characteristics after so many changes and how those baselines compare to other languages. Bash is just here to show what it is like for a normal person to compete in the Olympics. 
+
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Test</th>
+      <th>Average User Time (seconds)</th>
+      <th>Average Peak Memory (kbytes)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Oawk</td>
+      <td><pre>/usr/bin/time -v oawk 'BEGIN {
+    for (i = 1; i <= 1000000000; i++)
+        sum += i * i
+    print sum }'</pre></td>
+      <td>24.91</td>
+      <td>3407</td>
+    </tr>
+    <tr>
+      <td>Mawk</td>
+      <td><pre>/usr/bin/time -v mawk 'BEGIN {
+    for (i = 1; i <= 1000000000; i++)
+        sum += i * i
+    print sum }'</pre></td>
+      <td>23.14</td>
+      <td>2853</td>
+    </tr>
+    <tr>
+      <td>Gawk</td>
+      <td><pre>/usr/bin/time -v gawk 'BEGIN {
+    for (i = 1; i <= 1000000000; i++)
+        sum += i * i
+    printf "%.0f\n", sum }'</pre></td>
+      <td>52.84</td>
+      <td>4659</td>
+    </tr>
+    <tr>
+      <td>Python</td>
+      <td><pre>/usr/bin/time -v python3 -c '
+total = 0
+for i in range(1, 1000000001):
+    total += i * i
+print(total)'</pre></td>
+      <td>111.44</td>
+      <td>9139</td>
+    </tr>
+    <tr>
+      <td>Bash</td>
+      <td><pre>/usr/bin/time -v bash -c '
+sum=0
+for ((i = 1; i <= 1000000000; i++)); do
+    ((sum += i * i))
+done
+printf "%d\n" "$sum"'</pre></td>
+      <td>1741.16</td>
+      <td>3619</td>
+    </tr>
+  </tbody>
+</table>
+
+**Results:** Oawk was 7.65% slower than Mawk, with peak memory usage being 19.42% higher.
 
 # Installation
 
-Dependencies
+### Dependencies
 
-Building and Installing
+### Building and Installing
 
 make && sudo make install
 
-Testing
+### Testing
 
 make check
 
-Uninstallation
+### Uninstallation
 
 sudo make uninstall && make clean
 
@@ -97,3 +157,8 @@ sudo make uninstall && make clean
 Formatter
 
 Color syntax file
+
+
+
+
+
