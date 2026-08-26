@@ -43,17 +43,9 @@ It preserves Awk's original text-processing design while adding classes, objects
 
 ## On the Capitalization of Awk
 
-a word on the captilization of awk
+This section is strictly due to the universal inconsistency I noticed when beginning this project. And it is a pet peeve, to be honest. There is no universally followed convention for the capitalization of "Awk". Across books, manuals, and any other documentation, especially online documentation, the language can be found written as "AWK", "Awk", or "awk". I have even noticed--in some cases--the name can take any of the aforementioned forms from within the same source. The primary example is *The AWK Programming Language* (1988), published by Alfred Aho, Brian Kernighan, and Peter Weinberger. This is the official reference manual for Awk. The title of the book writes the name as "AWK"; however, the authors refer to it as "Awk" starting on the first page of the Preface. Then "awk" is additionally established as the name of the command-line utility used to invoke the tool and language. As a result, all three forms have substantial historical precedent from within the same source. 
 
-documenation is wildly inconsistent
-
-is it AWK or Awk or awk
-    the title of THE book says AWK and Google says AWK
-    but literally in the same book, the authors refer to it as Awk
-
-differences between commandline tools (lowercase) and official documentation
-
-my bawkp follows this same convention
+And the same inconsistency extends to individual Awk flavors (e.g. Nawk, Gawk, Mawk, etc.). Names may appear with different capitalization depending on whether a source is discussing the project and implementation, the command-line utility, or simply following its own stylistic convention. Consequently, Oawk adopts a consistent distinction throughout its documentation, both for itself and when referring to Awk and its flavors. "Awk" refers to the original implementation and programming language, while "Nawk", "Gawk", "Mawk", and "Oawk" refer to their respective flavors as projects. Lowercase forms such as `awk`, `nawk`, `gawk`, `mawk`, and `oawk` refer specifically to the command-line utilities and will be wrapped in code blocks. This makes statements like "Oawk is invoked with `oawk`" clear and unambiguous. The same capitalization convention is followed by the [Bawk](https://github.com/robertsean1995/bawk) programming methodology.
 
 # Features
 
