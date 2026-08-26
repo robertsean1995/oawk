@@ -8,7 +8,7 @@
 
 <hr>
 
-**OAWK Programming ("o/awk/p" or "Oawk") is an interpreter of the Awk programming language that extends functionality by adding object orientation and various supporting capabilities. This idea was originally conceived while trying to improve my own offensive security methodologies by marrying Bash and Awk. The pseudo-class structure I tried to implement in Bash was not sufficient, so I decided to fork my preferred Awk implementation. Oawk is a fork of [Mawk](https://invisible-island.net/mawk/).**
+**OAWK Programming ("o/awk/p" or "Oawk") is an interpreter of the Awk programming language that extends functionality by adding object orientation and various supporting capabilities. This idea was originally conceived while trying to improve my own offensive security methodologies by marrying Bash and Awk. The pseudo-class structure I tried to implement from within Bash was not sufficient, so I forked my preferred Awk flavor and Oawk was born. Oawk is a fork of [Mawk](https://invisible-island.net/mawk/).**
 
 **The name "Oawk" is derived from "Object-Oriented Awk" and follows the same naming convention as other Awk implementations (e.g. Nawk, Gawk, Mawk, etc.). The logo is made to resemble a regular expression in the same style as Grep ("g/re/p"), and the chickens are a lighthearted reference to the programming methodology for which Oawk was created. See [Bawk](https://github.com/robertsean1995/bawk) for more information.**
 
