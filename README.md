@@ -37,27 +37,27 @@
 
 <hr>
 
-# Introduction
+# 1 Introduction
 
 It preserves Awk's original text-processing design while adding classes, objects, methods, first-class functions, decorators, reflection, and an interactive Read-Eval-Print Loop ("REPL")
 
-## On the Capitalization of Awk
+## 1a On the Capitalization of Awk
 
 This section is strictly due to the universal inconsistency I noticed when beginning this project. And it is a pet peeve, to be honest. There is no universally followed convention for the capitalization of "Awk". Across books, manuals, and any other documentation, especially online documentation, the language can be found written as "AWK", "Awk", or "awk". I have even noticed--in some cases--the name can take any of the aforementioned forms from within the same source. The primary example is *The AWK Programming Language* (1988), published by Alfred Aho, Brian Kernighan, and Peter Weinberger. This is the official reference manual for Awk. The title of the book writes the name as "AWK"; however, the authors refer to it as "Awk" starting on the first page of the Preface. Then "awk" is established as the name of the command-line utility used to invoke the tool and language. As a result, all three forms have substantial historical precedent from within the same source. 
 
 And the same inconsistency extends to individual Awk flavors (e.g. Nawk, Gawk, Mawk, etc.). Names may appear with different capitalization depending on whether a source is discussing the project and implementation, the command-line utility, or simply following its own stylistic convention. Consequently, Oawk adopts a consistent distinction throughout its documentation, both for itself and when referring to Awk and its flavors. "Awk" refers to the original implementation and programming language, while "Nawk", "Gawk", "Mawk", and "Oawk" refer to their respective flavors as projects. Lowercase forms such as `awk`, `nawk`, `gawk`, `mawk`, and `oawk` refer specifically to the command-line utilities and will be wrapped in code blocks. This makes statements like "Oawk is invoked with `oawk`" clear and unambiguous. The same capitalization convention is followed by the [Bawk](https://github.com/robertsean1995/bawk) programming methodology.
 
-# Features
+# 2 Features
 
 [Overview of Oawk's language features, including the extent of its object orientation, first-class functions, decorators and their effect on the runtime model, reflection, the REPL, and AWK compatibility.]
 
-## Examples
+## 2a Examples
 
 ### Classes and Objects
 
 ### Dynamic Functions and Decorators
 
-# Performance Metrics
+# 3 Performance Metrics
 
 It is intended for Oawk to preserve Mawk's performance-oriented foundation. To measure the performance impact of these changes, Oawk is benchmarked alongside Mawk, Gawk, Python, and Bash using the same computational workload.
 
@@ -128,7 +128,7 @@ printf "%d\n" "$sum"'</pre></td>
 
 **Results:** Oawk was 7.65% slower than Mawk, with peak memory usage being 19.42% higher.
 
-# Installation
+# 4 Installation
 
 ### Dependencies
 
@@ -144,7 +144,7 @@ make check
 
 sudo make uninstall && make clean
 
-# Supporting Tools
+# 5 Supporting Tools
 
 Formatter
 
