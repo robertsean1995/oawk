@@ -22,14 +22,7 @@
 
 <hr>
 
-## Table of Contents
-- [1 Introduction](#1-introduction)
-  - [1a On the Capitalization of Awk](#1a-on-the-capitalization-of-awk)
-- [2 Features](#2-features)
-  - [2a Examples](#2a-examples)
-- [3 Performance Metrics](#3-performance-metrics)
-- [4 Installation](#4-installation)
-- [5 Supporting Tools](#5-supporting-tools)
+
 
 <hr>
 
