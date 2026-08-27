@@ -22,7 +22,9 @@
 
 <hr>
 
-![DEMO](/images/DEMO)
+<div align="center">
+  <img src="/images/DEMO" alt="DEMO">
+</div>
 
 <hr>
 
