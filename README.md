@@ -29,10 +29,6 @@
   - [2a Examples](#2a-examples)
 - [3 Performance Metrics](#3-performance-metrics)
 - [4 Installation](#4-installation)
-  - [4a Dependencies](#4a-dependencies)
-  - [4b Building and Installing](#4b-building-and-installing)
-  - [4c Testing](#4c-testing)
-  - [4d Uninstallation](#4d-uninstallation)
 - [5 Supporting Tools](#5-supporting-tools)
 
 <hr>
