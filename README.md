@@ -1,4 +1,4 @@
-![OAWK](/images/LOGO)
+![LOGO](/images/LOGO)
 
 <div align="center">
   <a href="https://www.linkedin.com/in/robertsean1995/"><img align="middle" src="https://img.shields.io/badge/LinkedIn-%230A66C2.svg?style=for-the-badge&logo=linkedin&logoColor=white"></a>
@@ -22,7 +22,7 @@
 
 <hr>
 
-
+![DEMO](/images/DEMO)
 
 <hr>
 
