@@ -37,7 +37,7 @@
 
 This project originated while developing [Bawk](https://github.com/robertsean1995/bawk), an unconventional programming methodology that focused on combining Bash and Awk for offensive security and general-purpose programming. Early attempts used Bash to provide a pseudo-object-oriented wrapper for Awk. That approach technically worked, but it blurred the responsibility boundaries that held the methodology together and exposed a more fundamental limitation. Because Mawk was already my preferred Awk flavor for the project, it became the foundation for creating a solution. Oawk is the result: an object-oriented fork of Mawk that preserves the philosophy of Awk.
 
-Oawk's object-oriented model draws deliberate inspiration from Python, providing that familiar reference point for classes, objects, methods, and dynamic behavior while adapting those concepts to Awk. Object orientation remains an extension of the existing language, rather than a replacement for its traditional programming model. Mawk remains the baseline against which that evolution is measured, with Oawk building upon its parser, runtime, execution model, and performance-oriented foundation where necessary to support a broader programming model. The result is still Awk at its core.
+Oawk's object-oriented model draws deliberate inspiration from Python, providing that familiar reference point for classes, objects, methods, and dynamic behavior while adapting those concepts to Awk. Object orientation remains an extension of the existing language, rather than a replacement for its traditional programming model. Mawk remains the baseline against which that evolution is measured, with Oawk building upon its parser, runtime, execution model, and performance-oriented foundation where necessary to provide a broader programming environment. The result is still Awk at its core.
 
 ## 1a On the Capitalization of Awk
 
@@ -47,19 +47,30 @@ And the same inconsistency extends to individual Awk flavors (e.g. Nawk, Gawk, M
 
 # 2 Features
 
-[Overview of Oawk's language features, including the extent of its object orientation, first-class functions, decorators and their effect on the runtime model, reflection, the REPL, and AWK compatibility.]
+The following are the primary language and runtime features introduced by Oawk:
+
+- Classes and Objects — Native class definitions, object instantiation, instance state, methods, method calls, and object references.
+- Inheritance — Classes can inherit from other classes, allowing methods and behavior to be extended or overridden.
+- Object Lifecycle Methods — Special methods provide behavior for object initialization, string conversion, and destruction.
+- First-Class Functions — Functions can be stored in variables, passed as arguments, returned from functions, and invoked dynamically.
+- Decorators — Functions can be wrapped or transformed using `@decorator` syntax, building on Oawk's first-class function support.
+- Runtime Reflection — Programs can inspect values, functions, classes, and objects while running.
+- Dynamic Object Model — Object state and function behavior remain dynamic, rather than relying on a static type system.
+- Interactive REPL — Oawk can be used interactively through a persistent Read-Eval-Print Loop ("REPL"), similar to Python. 
+- Awk Compatibility — Traditional Awk command syntax and programming remain intact, including pattern-action processing, associative arrays, regular expressions, fields, and records.
+  - Mawk Foundation — Oawk remains based directly on Mawk and retains its lightweight, performance-oriented execution model. See [Mawk](https://invisible-island.net/mawk/) for more information. 
 
 ## 2a Examples
 
-### Classes and Objects
+Oawk includes a collection of executable examples as part of its regression suite. Rather than duplicating those programs here, the `tests/objects/` directory contains examples covering Oawk's object-oriented and supporting language features individually.
 
-### Dynamic Functions and Decorators
+For a complete example, see `000_integration_project.awk`. This program is intended as an integration demonstration of Oawk's implementation. The remaining files in `tests/objects/` provide focused examples of individual behaviors and can be used as a reference when experimenting with a specific feature.
 
 # 3 Performance Metrics
 
 It is intended for Oawk to preserve Mawk's performance-oriented foundation. To measure the performance impact of these changes, Oawk is benchmarked alongside Mawk, Gawk, Python, and Bash using the same computational workload.
 
-The benchmark performs one billion iterations of a simple arithmetic loop. Each tool is measured using ```/usr/bin/time -v```. The test is repeated three (3) times per tool. The reported results are the averages of **User time (seconds)**, representing CPU time spent executing the program in user mode, and **Maximum resident set size (kbytes)**, representing peak physical memory usage during execution. This is not an *exhaustive* comparison. 
+The benchmark performs one billion iterations of a simple arithmetic loop. Each tool is measured using `/usr/bin/time -v`. The test is repeated three (3) times per tool. The reported results are the averages of **User time (seconds)**, representing CPU time spent executing the program in user mode, and **Maximum resident set size (kbytes)**, representing peak physical memory usage during execution. This is not an *exhaustive* comparison. 
 
 These benchmarks are intended as a focused comparison of raw loop execution and memory overhead rather than a comprehensive measure of overall language performance. They simply provide a baseline for evaluating how closely Oawk retains Mawk's performance characteristics after so many changes and how those baselines compare to other languages. Bash is just here to show what it is like for a normal person to compete in the Olympics. 
 
