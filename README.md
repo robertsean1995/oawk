@@ -35,7 +35,9 @@
 
 # 1 Introduction
 
-It preserves Awk's original text-processing design while adding classes, objects, methods, first-class functions, decorators, reflection, and an interactive Read-Eval-Print Loop ("REPL")
+This project originated while developing [Bawk](https://github.com/robertsean1995/bawk), an unconventional programming methodology that focused on combining Bash and Awk for offensive security and general-purpose programming. Early attempts used Bash to provide a pseudo-object-oriented wrapper for Awk. That approach technically worked, but it blurred the responsibility boundaries that held the methodology together and exposed a more fundamental limitation. Because Mawk was already my preferred Awk flavor for the project, it became the foundation for creating a solution. Oawk is the result: an object-oriented fork of Mawk that preserves the philosophy of Awk.
+
+Oawk's object-oriented model draws deliberate inspiration from Python, providing that familiar reference point for classes, objects, methods, and dynamic behavior while adapting those concepts to Awk. Object orientation remains an extension of the existing language, rather than a replacement for its traditional programming model. Mawk remains the baseline against which that evolution is measured, with Oawk building upon its parser, runtime, execution model, and performance-oriented foundation where necessary to support a broader programming model. The result is still Awk at its core.
 
 ## 1a On the Capitalization of Awk
 
