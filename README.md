@@ -34,7 +34,7 @@ This project originated while developing [Bawk](https://github.com/robertsean199
 
 Oawk's object-oriented model draws deliberate inspiration from Python, providing that familiar reference point for classes, objects, methods, and dynamic behavior while adapting those concepts to Awk. Object orientation remains an extension of the existing language, rather than a replacement for its traditional programming model. Mawk remains the baseline against which that evolution is measured, with Oawk building upon its parser, runtime, execution model, and performance-oriented foundation where necessary to provide a broader programming environment. The result is still Awk at its core.
 
-## 1a On the Capitalization of Awk
+### On the Capitalization of Awk
 
 This section is strictly due to the universal inconsistency I noticed when beginning this project. And it is a pet peeve, to be honest. There is no universally followed convention for the capitalization of "Awk". Across books, manuals, and any other documentation, especially online documentation, the language can be found written as "AWK", "Awk", or "awk". I have even noticed--in some cases--the name can take any of the aforementioned forms from within the same source. The primary example is *The AWK Programming Language* (1988), published by Alfred Aho, Brian Kernighan, and Peter Weinberger. This is the official reference manual for Awk. The title of the book writes the name as "AWK"; however, the authors refer to it as "Awk" starting on the first page of the Preface. Then "awk" is established as the name of the command-line utility used to invoke the tool and language. As a result, all three forms have substantial historical precedent from within the same source. 
 
@@ -55,9 +55,9 @@ The following are the primary language and runtime features introduced by Oawk:
 - Awk Compatibility — Traditional Awk command syntax and programming remain intact, including pattern-action processing, associative arrays, regular expressions, fields, and records.
   - Mawk Foundation — Oawk remains based directly on Mawk and retains its lightweight, performance-oriented execution model. See [Mawk](https://invisible-island.net/mawk/) for more information. 
 
-## 2a Examples
+### Examples
 
-Oawk includes a collection of executable examples as part of its regression suite. Rather than duplicating those programs here, the `tests/objects/` directory contains examples covering Oawk's object-oriented and supporting language features individually.
+Oawk includes a collection of executable examples as part of its regression suite. Rather than duplicating those scripts here, the `tests/objects/` directory contains examples covering Oawk's object-oriented and supporting language features individually.
 
 For a complete example, see `000_integration_project.awk`. This program is intended as an integration demonstration of Oawk's implementation. The remaining files in `tests/objects/` provide focused examples of individual behaviors and can be used as a reference when experimenting with a specific feature.
 
@@ -134,27 +134,71 @@ printf "%d\n" "$sum"'</pre></td>
 
 # 4 Installation
 
-### Dependencies
+Oawk is built and installed from source using the included build system. The standard installation places `oawk` and its supporting documentation and tools on the system. The following packages are required to build and test Oawk:
 
-### Building and Installing
+- `gcc` — compiler used to build Oawk
+- `make` — executes build and installation rules
+- `bison` — generates the parser
+- `readline` — used by the REPL
+- `expect` — used to test REPL behavior
 
+### Building and Testing
+
+I have plans to eventually get this on official Linux distribution repositories for installation. For now, download the source code from this repository, and navigate to that directory. Compile the project and install system-wide with:
+
+```
 make && sudo make install
+```
 
-### Testing
-
-make check
+Oawk includes a regression suite covering inherited Mawk behavior and Oawk-specific language and runtime features. After building the project, run the complete test suite from the root of the Oawk repository with `make check`. After installation and testing, Oawk can be invoked with `oawk`. Traditional Awk programs can be executed directly from the command line, `oawk 'BEGIN { print "Hello, world!" }'`, or loaded from a file using the standard `-f` option, `oawk -f program.awk`.
 
 ### Uninstallation
 
+From the root of the Oawk repository, you can remove the system-wide installation and remove generated build files from the source tree with:
+
+```
 sudo make uninstall && make clean
+```
 
 # 5 Supporting Tools
 
-Formatter
+### Formatter
 
-Color syntax file
+Oawk includes a built-in formatter through the `-W pretty` and `-W prettier` options. Both options format Oawk source code according to the same formatting rules, with `-W pretty` printing to stdout and `-W prettier` actually replacing the source input file with the formatted code. For example:
 
+`oawk -W prettier example.awk`
 
+The formatting style can be considered controversial. Oawk takes additional inspiration from Python by following a lot of the same formatting conventions; conventions that focus on readability and indentation. All of the syntactic components required by Awk remain present; Oawk's formatter simply makes different stylistic choices about how those components are arranged. This is really the main reason why I wanted to provide a formatter as built-in functionality. It's easier to follow these rules if you can just run the formatter and move on, rather than try and memorize a bunch of new rules. 
 
+One deliberate example is the handling of closing braces. Oawk avoids unnecessarily cascading closing braces across multiple lines. A closing brace may instead remain on the same line as another closing brace where the structure remains clear. This emphasizes the same readability and indentation style as Python. This is a stylistic decision rather than a syntactic requirement. Oawk accepts ordinary Awk formatting. The formatter simply provides a canonical style for users who want consistent formatting across Oawk programs. This is also in direct support of [Bawk](https://github.com/robertsean1995/bawk), where readability is survival. 
 
+For example:
 
+```
+class User {
+    function describe() {
+        if (self.name != "") {
+            print self.name } } }
+```
+
+rather than:
+
+```
+class User {
+    function describe() {
+        if (self.name != "") {
+            print self.name
+        }
+    }
+}
+```
+
+### Syntax Highlighting 
+
+Oawk's additional syntax is not recognized by standard Awk syntax definitions; therefore, an updated `awk.tmLanguage` file is included to provide syntax highlighting for Oawk-specific constructs in VS Code. This file is designed to be used with the "Awk" extension for VS Code by Donald Mull Jr.
+
+The extension is published under the identifier `luggage66.awk`. After installing the extension, locate its syntax directory. On Linux, version 0.0.2 is normally located at:
+
+`~/.vscode/extensions/luggage66.awk-0.0.2/syntaxes/awk.tmLanguage`
+
+Replace the existing file with the `awk.tmLanguage` file included in `tools/awk.tmLanguage`. After replacing the file, restart VS Code or run `Developer: Reload Window`. Unsaved files with new Oawk code will often be detected as JavaScript or C++ in VS Code, so it is recommended to save the new file explicitly as an `.awk` file for the highlighting to work as expected. 
