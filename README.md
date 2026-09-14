@@ -164,6 +164,8 @@ sudo make uninstall && make clean
 
 ### Formatter
 
+I'M GOING FOR PYTHONIC
+
 Oawk includes a built-in formatter through the `-W pretty` and `-W prettier` options. Both options format Oawk source code according to the same formatting rules, with `-W pretty` printing to stdout and `-W prettier` actually replacing the source input file with the formatted code. For example:
 
 `oawk -W prettier example.awk`
