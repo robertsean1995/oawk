@@ -57,6 +57,8 @@ The following are the primary language and runtime features introduced by Oawk:
 
 ### Examples
 
+To review fullf unctionality of Oawk, I will refer you to the tests/oibjects/ directory, rather than further restating them here in great detail. 
+
 Oawk includes a collection of executable examples as part of its regression suite. Rather than duplicating those scripts here, the `tests/objects/` directory contains examples covering Oawk's object-oriented and supporting language features individually.
 
 For a complete example, see `000_integration_project.awk`. This program is intended as an integration demonstration of Oawk's implementation. The remaining files in `tests/objects/` provide focused examples of individual behaviors and can be used as a reference when experimenting with a specific feature.
